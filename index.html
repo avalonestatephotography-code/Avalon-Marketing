@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avalon — Architectural Real Estate Photography</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Geometric + Editorial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Libre+Baskerville:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .font-editorial {
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .font-geo {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#111418] text-[#EDEBE6] font-geo">
+
+    <!-- =========================
+NAV
+========================= -->
+    <header class="fixed inset-x-0 top-0 z-50 bg-[#111418]/80 backdrop-blur">
+        <nav class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="text-xs tracking-[0.35em] text-white">AVALON</div>
+            <div class="hidden md:flex gap-10 text-xs tracking-[0.25em] text-[#C9CCD1]">
+                <a href="#services" class="hover:text-white">SERVICES</a>
+                <a href="#about" class="hover:text-white">ABOUT</a>
+                <a href="#contact" class="hover:text-white">CONTACT</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =========================
+HERO — EDITORIAL VIDEO COLLAGE
+========================= -->
+    <section class="relative min-h-screen flex items-center bg-[#111418]">
+
+        <!-- GRID -->
+        <div class="absolute inset-0 grid grid-cols-1 md:grid-cols-2">
+
+            <!-- CITY VIDEO -->
+            <div class="relative overflow-hidden">
+                <video autoplay muted loop playsinline
+                    class="absolute inset-0 w-full h-full object-cover brightness-110">
+                    <source src="videos/6133588-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                </video>
+                <div class="absolute inset-0 bg-[#434a50] mix-blend-multiply"></div>
+            </div>
+
+            <!-- FOREST / ROAD VIDEO -->
+            <div class="relative overflow-hidden">
+                <video autoplay muted loop playsinline
+                    class="absolute inset-0 w-full h-full object-cover brightness-110">
+                    <source src="videos/background_video.mp4" type="video/mp4" />
+                </video>
+                <div class="absolute inset-0 bg-[#434a50] mix-blend-multiply"></div>
+            </div>
+
+        </div>
+
+        <!-- CENTERED TYPE -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <h1 class="text-[clamp(3rem,7vw,5rem)] tracking-[0.3em] font-medium text-white">
+                AVALON
+            </h1>
+
+            <p class="mt-8 text-sm tracking-[0.3em] text-[#C9CCD1] max-w-xl">
+                ARCHITECTURAL REAL ESTATE PHOTOGRAPHY<br>
+                VIRGINIA · MARYLAND · WASHINGTON, D.C.
+            </p>
+            <p class="mt-16 text-sm text-white/80 font-editorial tracking-wide text-center max-w-xl mx-auto">
+                “How a home is seen changes what it’s worth.”
+            </p>
+
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+MARKET INSIGHT TOOL (REFINED)
+========================= -->
+    <section class="max-w-4xl mx-auto px-6 py-36 text-center bg-[#1E2226]">
+
+        <h2 class="text-xs tracking-[0.35em] text-white/60 mb-6">
+            MARKET INSIGHT
+        </h2>
+
+        <h3 class="text-2xl md:text-3xl text-white mb-14 font-light">
+            What does photography mean in your market?
+        </h3>
+
+        <!-- INPUT PANEL -->
+        <div
+            class="inline-flex items-center gap-4 px-6 py-4 bg-[#0F1113] border border-white/10 backdrop-blur rounded-full shadow-lg">
+
+            <input id="zipInput" type="text" inputmode="numeric" placeholder="ZIP Code"
+                class="bg-transparent text-white placeholder:text-white/40 tracking-wide focus:outline-none w-32 text-center" />
+
+            <div class="h-6 w-px bg-white/10"></div>
+
+            <button onclick="showInsights()"
+                class="text-xs tracking-[0.3em] text-black bg-white px-6 py-2 rounded-full hover:bg-white/90 transition">
+                VIEW
+            </button>
+
+        </div>
+
+        <!-- OUTPUT PANEL -->
+        <div id="insightBox" class="hidden opacity-0 translate-y-6 transition-all duration-700 mt-20 max-w-2xl mx-auto">
+
+            <div class="border border-white/10 bg-[#111418]/80 backdrop-blur px-10 py-12">
+
+                <p class="text-lg text-white/80 mb-8 leading-relaxed">
+                    Homes in this area are typically valued around
+                    <span id="homeValue" class="text-white font-medium"></span>.
+                </p>
+
+                <ul class="space-y-4 text-white/75 text-sm tracking-wide">
+                    <li>• Homes sell <strong>32–50%</strong> faster</li>
+                    <li>• Earn <strong>$3,400–$11,000 more</strong> at sale</li>
+                    <li>• Receive <strong>61–118%</strong> more online views</li>
+                </ul>
+
+                <p class="mt-10 text-xs text-white/40 tracking-wide">
+                    Data based on Redfin, Zillow, NAR, and IMOTO studies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+EDITORIAL STATEMENT (LIGHT BREAK)
+========================= -->
+    <section class="bg-[#EDEBE6] text-[#111418] py-32">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+            <p class="font-editorial text-2xl leading-relaxed">
+                Photography should describe a space —
+                not decorate it.
+            </p>
+
+            <p class="text-sm tracking-wide leading-loose">
+                Avalon documents residential architecture with restraint,
+                prioritizing proportion, light, and clarity over excess.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- =========================
+FULL BLEED IMAGE
+========================= -->
+    <section class="bg-[#111418]">
+        <img src="images/dining_room.jpg" class="w-full h-[80vh] object-cover border-t border-b border-white/10"
+            alt="Interior" />
+    </section>
+
+    <!-- =========================
+SPLIT IMAGE SPREAD
+========================= -->
+    <section class="py-32">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+
+            <img src="images/kitchen.jpg" class="h-[65vh] w-full object-cover border border-white/10" alt="Kitchen" />
+
+            <div class="flex flex-col justify-center">
+                <h3 class="text-xs tracking-[0.35em] text-[#C9CCD1] mb-6">
+                    SERVICES
+                </h3>
+                <p class="font-editorial text-xl leading-relaxed">
+                    Residential interiors.<br>
+                    Architectural exteriors.<br>
+                    Editorial-level presentation.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================
+SECOND IMAGE
+========================= -->
+    <section class="bg-[#111418]">
+        <img src="images/regal_bedroom.jpg" class="w-full h-[75vh] object-cover border-t border-white/10"
+            alt="Bedroom" />
+    </section>
+
+    <!-- =========================
+ABOUT — EDITORIAL COLUMN
+========================= -->
+    <section id="about" class="py-32 bg-[#1A1E22]">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+
+            <h2 class="text-xs tracking-[0.4em] mb-12">ABOUT</h2>
+
+            <p class="font-editorial text-xl leading-relaxed text-[#EDEBE6]">
+                Avalon is a Virginia-based studio working with real estate
+                professionals who value presentation without excess.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- =========================
+CONTACT — FINAL PANEL
+========================= -->
+    <section id="contact" class="py-40">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+
+            <p class="text-xs tracking-[0.35em] text-[#C9CCD1] mb-10">
+                CONTACT
+            </p>
+
+            <p class="font-editorial text-2xl mb-16">
+                Let’s discuss your next listing.
+            </p>
+
+            <a href="mailto:avalonestatephotography@gmail.com"
+                class="inline-block px-14 py-4 border border-white/40 text-xs tracking-[0.25em] hover:bg-white hover:text-[#111418] transition">
+                EMAIL&nbsp;US
+            </a>
+
+        </div>
+    </section>
+    <script src="js/insight.js"></script>
+</body>
+
+</html>
